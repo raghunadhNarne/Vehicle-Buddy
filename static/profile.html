@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Vehicle Buddy</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/select2.css"> 
+  
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/cropper.css">
+  <!-- =======================================================
+  * Template Name: Logis - v1.3.0
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ========================================================https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css -->
+  <link rel="stylesheet" href="./assets/css/select2-bootstrap-theme.css" />
+    <style>
+      .select2-hidden-accessible { position: fixed !important; }
+    </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Vehicle Buddy</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          
+          <li><a href="index.html">Home</a></li>
+          <!--<li><a href="pricing.html">Pricing</a></li>
+          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>-->
+          
+          <li id="signIn"><a class="get-a-quote" href="signin.html">Sign In</a></li>
+          <li id="signOut" class="dropdown d-none"><a href="#"><span></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Sign Out</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/main.jpg');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+            
+              <h2>Profile </h2>
+            <div  class="bi-pencil-fill h1 text-white" id="edit"></div>
+            </div>
+            
+          </div>
+          
+
+          <form class="php-email-form" enctype="multipart/form-data" id="myform" name="myform">
+            <label class="label row justify-content-center rounded" >
+              <img class="col-lg-3 col-md-4 col-6 rounded-circle" id="profile" src="./assets/img/pfdef.jpg" alt="avatar">
+              <input disabled type="file" class="sr-only" id="input" name="image" accept="image/*">
+            </label>
+        </form>
+
+          <!--  <div class="row justify-content-center">
+            <img class="col-lg-3 col-md-4 col-6 rounded-circle" alt="avatar1" src="./assets/img/pfdef.jpg" />
+          </div>
+          -->
+        </div>
+      </div>
+      <!--- Code for modal crop-->
+      <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="image" src="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" id="crop">Crop</button>
+          </div>
+        </div>
+      </div>
+    </div><!--Modal -->
+      <nav>
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Profile</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <h1 class="h1 text-center">Hey <span class="data-name">User</span>, Heres your info. </h1>
+      <div class="container" data-aos="fade-up">
+
+
+
+        <div class="row gy-4 mt-4">
+
+
+
+          <div class="col">
+            <!-- <form class="php-email-form" id="myform" name="myform"> -->
+              <div class="row">
+
+                <div class="col-md-6 col-12 form-group mt-3 mt-md-0 text-center">
+                    Email
+                  <input type="email" class="form-control " name="email" id="email" placeholder="Your Email" disabled>
+                </div>
+                
+              <div class="col-md-6 col-12  form-group mt-3 mt-md-0 text-center">
+                    Name
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Username" disabled>
+              </div>
+
+              <div class=" col-md-6  col-12  form-group mt-3 mt-md-0 text-center">
+                Date of birth
+                <input type="date" name="dob"  class="form-control" id="dob" placeholder="Your DOB" disabled>
+              </div>
+              <div class=" col-md-6  col-12 container-fluid form-group mt-3 mt-md-0 text-center">
+                Location
+                <select  name="autocompletestate"  class="overflow-hidden form-control" id="autocompletestate" placeholder="Your Location" disabled> </select>
+              </div>
+            </div>
+
+          </div>
+
+              <div class="text-center"><div class="btn btn-primary" id="save" >Save</div></div>
+            <!-- </form> -->
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class=" container justify-content-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-12 footer-info justify-content-center">
+          <a href="index.html" class="logo d-flex justify-content-center align-items-center">
+            <span>Vehicle Buddy</span>
+          </a>
+          <p class="text-center">Feel Free To Reach Out To Us On Social Media Platorms</p>
+          <div class="social-links d-flex mt-4 justify-content-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+<!--
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br><br>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+-->
+    <div class="container mt-4">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Vehicle Buddy</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="./assets/js/jquery.js"></script>
+  <script src="./assets/js/sweetalert.js"></script>
+  <script src="./assets/js/cropper.js"></script>
+  <script src="./assets/js/select2.js"></script>
+  <script src="./myjs/PageTemplate.js"></script>
+
+  <script src="./myjs/profile/autoComplete.js"></script>
+  <script src="./myjs//profile/profilePage.js"></script>
+  <script src="./myjs/profile/profileCropper.js"></script>
+
+</body>
+
+</html>
