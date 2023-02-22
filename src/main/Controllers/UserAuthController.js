@@ -1,5 +1,5 @@
 const {Request,Response}=require('express');
-const { containsUser, getUser, } = require('../mongo/dao/UserDAO');
+const { containsUser, getUser, validateUser} = require('../mongo/dao/UserDAO');
 const jwt = require('jsonwebtoken');
 
 /**
@@ -66,9 +66,9 @@ async function validateUserEndpoint(req,res)
         console.log(email,password)
         if(await containsUser(email))
         {
-            let user=await getUser(email);
-            if(user.password==password)
-            {
+            //let user=await getUser(email);
+            if(await validateUser(email,password))
+            {   let user=await getUser(email);
                 result["message"]=`Logged in ${user.name} bro`;
                 result["success"]=true;
                 let data = {

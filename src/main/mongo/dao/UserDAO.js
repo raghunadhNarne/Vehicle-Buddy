@@ -1,15 +1,17 @@
 
 const {MongoClient}=require('mongodb');
-
+let bcrypt=require('bcrypt')
 
 //Function to add user to database
 async function addUser(user)
 {    let client=globalThis.mongoClient;
     try
     {  // await client.connect();
+        let salt = await bcrypt.genSalt();
+        let hashedpassword = await bcrypt.hash(user.password,salt);
         
         let collection=client.db('vehicle_buddy').collection('users');
-        await collection.insertOne({"email":user.email.toLowerCase(),"name":user.name,"password":user.password,"role":user.role});
+        await collection.insertOne({"email":user.email.toLowerCase(),"name":user.name,"password":hashedpassword,"role":user.role});
         //await client.close();
         return true;
     }
@@ -124,4 +126,17 @@ async function getUser(email)
 
 }
 
-module.exports={addUser,getUser,updateUser,containsUser};
+
+async function validateUser(email,password){
+    try{
+        let user = await getUser(email);
+        let isValid = bcrypt.compare(password,user.password);
+        return isValid;
+    }
+    catch(e){
+        console.log(e);
+    }
+    return false;
+}
+
+module.exports={addUser,getUser,updateUser,containsUser,validateUser};

@@ -33,3 +33,6 @@ app.use('/bars',barsRouter);
 app.use('/redirect',redirectRouter);
 
 app.listen(4292);
+
+
+//require('crypto').randomBytes(64).toString('hex')
