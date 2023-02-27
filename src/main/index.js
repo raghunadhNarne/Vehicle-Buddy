@@ -17,7 +17,7 @@ const { upload } = require('./multer/addVehicle');
 
 
 let app=express();
-app.use('/',upload);
+// app.use('/',upload);
 app.set('case sensitive routing', false);
 app.use(express.json({limit:"10mb"}));
 app.use(cookieParser());

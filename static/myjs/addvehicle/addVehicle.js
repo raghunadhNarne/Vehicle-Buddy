@@ -80,6 +80,8 @@ async function submitChange()
     formdata.set("location",location);
     formdata.set("model",model);
     formdata.set("pic",formdata.get("image").name)
+    var file = new File([window.ctx], formdata.get("image").name, { type: 'image/jpeg' });
+    formdata.set('image', file); 
 
     
     if(model==null)

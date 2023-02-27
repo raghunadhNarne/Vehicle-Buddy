@@ -24,6 +24,7 @@ async function addVehicleEndpoint(req,res)
                 }
             else
             {
+                req.body.pic = req.file.location;
                 let success=await addVehicle(req.body,res.locals.user.email)
                 if(success)
                 {
@@ -41,18 +42,18 @@ async function addVehicleEndpoint(req,res)
             }
 
 
-            upload(req,res,function(err) {
-                if(err) {
-                    // return res.end("Error uploading file.");
-                    result.success=true;
-                    result.message="Error uploading image bro.";
-                }
+            // upload(req,res,function(err) {
+            //     if(err) {
+            //         // return res.end("Error uploading file.");
+            //         result.success=true;
+            //         result.message="Error uploading image bro.";
+            //     }
 
-                //upload to mongo
-                result.success=true;
-                result.message="Successfully added vehicle bro.";
-            }
-            )
+            //     //upload to mongo
+            //     result.success=true;
+            //     result.message="Successfully added vehicle bro.";
+            // }
+            // )
         }
     catch(E){
         result.success=false;

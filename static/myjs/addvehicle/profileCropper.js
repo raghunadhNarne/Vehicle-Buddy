@@ -14,7 +14,6 @@ window.addEventListener('DOMContentLoaded', function () {
     input.addEventListener('change', function (e) {
       var files = e.target.files;
       var done = function (url) {
-        //input.value = '';
         image.src = url;
         $alert.hide();
         $modal.modal('show');
@@ -40,8 +39,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
     $modal.on('shown.bs.modal', function () {
       cropper = new Cropper(image, {
-        aspectRatio: 4/2,
+        aspectRatio: 4/3,
         viewMode: 2,//Best mode
+        quality: 1,
       });
     }).on('hidden.bs.modal', function () {
       cropper.destroy();
@@ -67,10 +67,8 @@ window.addEventListener('DOMContentLoaded', function () {
         $alert.removeClass('alert-success alert-warning');
         canvas.toBlob(async function (blob) {
           window.ctx = blob;
-          blob=await blob.text();
-          blob=canvas.toDataURL('image/jpeg',1);
-         
-
+          // blob=await blob.text();
+          // blob=canvas.toDataURL('image/jpeg',1);
         },'image/jpeg',1);
       }
     });
